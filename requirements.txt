@@ -6,3 +6,9 @@ scikit-learn
 jupyter
 nltk
 ta
+textblob
+yfinance
+statsmodels
+scipy
+notebook
+ipykernel
