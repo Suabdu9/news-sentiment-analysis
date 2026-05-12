@@ -1,24 +1,27 @@
-# Financial News and Stock Price Analysis
+# News Sentiment Analysis and Stock Price Prediction
 
 ## Project Overview
 
-This project analyzes the relationship between financial news sentiment and stock market behavior by combining exploratory data analysis (EDA), technical financial analysis, and natural language processing techniques.
+This project analyzes the relationship between financial news sentiment and stock market movement using exploratory data analysis, technical indicators, and natural language processing techniques.
 
-The project focuses on:
+The workflow combines financial news headlines with historical stock price data to investigate whether news sentiment has a measurable relationship with daily stock returns.
 
-* Exploring large-scale financial news headline datasets
-* Identifying publication trends and publisher activity
-* Performing quantitative stock price analysis using technical indicators
-* Computing financial performance metrics
-* Investigating potential relationships between news sentiment and stock price movement
+The project was completed as part of the KAIM Week 1 Challenge.
 
 ---
 
 # Business Objective
 
-Financial markets react rapidly to news events, analyst reports, earnings announcements, and broader economic developments. The objective of this project is to explore whether financial news sentiment can provide meaningful insight into stock price behavior and market trends.
+Financial markets are heavily influenced by information flow, investor perception, and breaking news. This project aims to explore whether sentiment extracted from financial news headlines can help explain stock price movement.
 
-By integrating natural language processing with quantitative financial analysis, the project aims to better understand how information flow may influence investor behavior and market activity.
+The analysis focuses on:
+
+- Exploring financial news publishing patterns
+- Analyzing stock price behavior using technical indicators
+- Measuring sentiment from financial news headlines
+- Quantifying the relationship between sentiment and stock returns
+
+The project demonstrates how NLP-based sentiment analysis and quantitative financial analysis can be integrated for market intelligence research.
 
 ---
 
@@ -26,182 +29,134 @@ By integrating natural language processing with quantitative financial analysis,
 
 ```text
 news-sentiment-analysis/
-├── .vscode/
 ├── .github/
 │   └── workflows/
+│       └── unittests.yml
 ├── data/
 │   └── raw/
+│       ├── financeData/
+│       └── newsData/
 ├── notebooks/
-│   ├── eda.ipynb
-│   └── financial_analysis.ipynb
-├── reports/
-│   └── interim_report.md
+│   ├── task_1_eda.ipynb
+│   ├── AAPL_analysis.ipynb
+│   ├── AMZN_analysis.ipynb
+│   ├── GOOG_analysis.ipynb
+│   ├── META_analysis.ipynb
+│   ├── NVDA_analysis.ipynb
+│   ├── AAPL_sentiment_analysis.ipynb
+│   ├── AMZN_sentiment_analysis.ipynb
+│   ├── GOOG_sentiment_analysis.ipynb
+│   ├── META_sentiment_analysis.ipynb
+│   └── NVDA_sentiment_analysis.ipynb
+├── scripts/
 ├── src/
 ├── tests/
-├── scripts/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-```
-
----
-
-# Data Sources
-
-## Financial News Dataset
-
-The news dataset contains:
-
-* Financial news headlines
-* Publisher information
-* Publication timestamps
-* Stock references
-
-This dataset is used for exploratory analysis and sentiment analysis.
-
-## Historical Stock Price Dataset
-
-The stock datasets contain:
-
-* Open prices
-* High prices
-* Low prices
-* Close prices
-* Trading volume
-* Date information
-
-These datasets are used for technical analysis and financial metric computation.
-
----
 
 # Tasks Completed
 
-## Task 1 — Exploratory Data Analysis
+## Task 1 — Exploratory Data Analysis (EDA)
 
-The following analyses were completed:
+Performed exploratory analysis on the financial news dataset to identify publishing patterns and headline characteristics.
 
-* Dataset inspection and preprocessing
-* Headline length analysis
-* Publisher activity analysis
-* Publication trend analysis
-* Publication-hour analysis
-* Keyword and topic pattern analysis
+Completed analyses include:
 
-### Key Findings
+- Headline length analysis
+- Publisher activity analysis
+- Publication trend analysis
+- Time-based publishing patterns
+- Data quality assessment and preprocessing
 
-* Financial news headlines are generally concise and information-dense.
-* A small number of publishers contribute a large proportion of articles.
-* Publication frequency shows noticeable spikes during periods of increased market activity.
-* Common keywords strongly relate to earnings, stock prices, and market performance.
+Visualizations were created to better understand publishing behavior and temporal activity trends.
 
 ---
 
-## Task 2 — Quantitative Financial Analysis
+## Task 2 — Quantitative Stock Analysis
 
-Technical analysis was performed using reusable workflows applied across multiple stock datasets.
+Performed technical analysis on multiple stock datasets using financial indicators and return metrics.
 
-### Technical Indicators
+### Companies analyzed
 
-* Simple Moving Average (SMA)
-* Exponential Moving Average (EMA)
-* Relative Strength Index (RSI)
-* Moving Average Convergence Divergence (MACD)
+- AAPL
+- AMZN
+- GOOG
+- META
+- NVDA
 
-### Additional Financial Metrics
+### Indicators and metrics used
 
-* Daily Returns
-* Cumulative Returns
-* Volatility-related metrics
+- Simple Moving Average (SMA)
+- Relative Strength Index (RSI)
+- MACD
+- Daily Returns
+- Volatility
+- Cumulative Returns
 
-### Key Findings
-
-* Several stocks exhibited strong long-term upward trends.
-* RSI and MACD revealed multiple momentum shifts and volatility changes.
-* Technical indicators successfully highlighted trend behavior and market movement patterns.
-
----
-
-# Data Preparation and Quality Issues
-
-Several preprocessing and cleaning steps were performed during the project:
-
-* Removed unnecessary index columns
-* Converted date columns into datetime format
-* Standardized timestamps for time-series analysis
-* Generated derived analytical features
-* Prepared reusable workflows for multi-stock analysis
-
-### Challenges Encountered
-
-* Mixed datetime formats within the news dataset
-* Timestamp normalization inconsistencies
-* CI/CD dependency conflicts caused by Windows-specific packages
-* Large file tracking issues caused by dataset commits
-
-These issues were resolved through preprocessing improvements, dependency cleanup, and Git workflow adjustments.
+The analysis explored momentum, trend behavior, volatility, and long-term stock performance.
 
 ---
 
-# Reusable Multi-Stock Workflow
+## Task 3 — Sentiment and Correlation Analysis
 
-A reusable analysis pipeline was implemented to efficiently apply preprocessing, technical indicator computation, and visualization steps across multiple stock datasets.
+Implemented a sentiment analysis and stock correlation workflow using financial news headlines and stock price data.
 
-This approach improves:
+### Completed workflow
 
-* Scalability
-* Consistency
-* Maintainability
-* Reproducibility
+- Sentiment scoring using TextBlob
+- Sentiment categorization
+- Date normalization and alignment
+- Weekend and holiday adjustment
+- Daily stock return calculation
+- Pearson correlation analysis
+- Scatter plot visualization
+- Sentiment-category return comparison
 
----
-
-# Visualizations
-
-The project includes multiple analytical visualizations, including:
-
-* Headline length distributions
-* Publisher activity charts
-* Publication trend analysis
-* Keyword frequency plots
-* Stock price trend plots
-* SMA and EMA trend visualizations
-* RSI momentum analysis plots
-* MACD indicator plots
-* Cumulative return trend analysis
+The workflow investigated relationships between financial news sentiment and stock market movement.
 
 ---
 
-# Technologies Used
+# Requirements
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-learn
-* Jupyter Notebook
-* TA Library (`ta`)
-* Git & GitHub
-* GitHub Actions
+Core dependencies are listed in `requirements.txt`.
+
+### Main libraries used
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- nltk
+- textblob
+- scipy
+- ta
+- Jupyter Notebook
 
 ---
 
-# Installation
+# Environment Setup
 
-Clone the repository:
+## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <repository-link>
+```
+
+## Navigate Into Project
+
+```bash
 cd news-sentiment-analysis
 ```
 
-Create virtual environment:
+## Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate virtual environment:
+## Activate Virtual Environment
 
 ### Windows
 
@@ -209,64 +164,47 @@ Activate virtual environment:
 venv\Scripts\activate
 ```
 
-Install dependencies:
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# Running the Project
-
-Launch Jupyter Notebook:
+## Launch Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-Run notebooks in the following order:
+---
 
-1. `notebooks/eda.ipynb`
-2. `notebooks/financial_analysis.ipynb`
+# Reproducing the Analysis
+
+1. Open the `notebooks` directory
+2. Run the Task 1 EDA notebook
+3. Run the Task 2 stock analysis notebooks
+4. Run the Task 3 sentiment analysis notebooks
+5. Review generated visualizations and statistical outputs
 
 ---
 
-# CI/CD Workflow
+# Key Findings
 
-GitHub Actions was configured to automate dependency installation and repository checks during pushes and pull requests.
-
-Workflow configuration:
-
-```text
-.github/workflows/unittests.yml
-```
+- Financial news activity varied significantly across publishers and time periods.
+- Different companies demonstrated different volatility and momentum characteristics.
+- Financial headlines contained a mixture of positive, neutral, and negative sentiment.
+- Correlation between sentiment and stock returns was generally weak, suggesting that stock movement is influenced by multiple additional factors.
+- Sentiment analysis still provides useful contextual information for understanding market behavior and investor reaction patterns.
 
 ---
 
-# My Contributions
+# Notes
 
-My contributions to the project include:
-
-* Data preprocessing and cleaning
-* Exploratory data analysis
-* Technical indicator implementation
-* Reusable workflow development
-* Financial metric computation
-* Visualization and interpretation
-* Git workflow management
-* CI/CD setup using GitHub Actions
-* Interim report preparation
-* Repository documentation
+- The news dataset used the historical ticker symbol `FB` for Meta Platforms, while the stock dataset used the updated `META` naming convention.
+- Weekend and holiday news items were aligned to the next available trading day during correlation analysis.
 
 ---
 
-# Next Steps
+# Author
 
-The next phase of the project will focus on:
-
-* Sentiment analysis of financial news headlines
-* Sentiment score computation using NLP techniques
-* Correlation analysis between sentiment and stock price movement
-* Integration of news and financial datasets
-* Final reporting and interpretation
+Sumeya
